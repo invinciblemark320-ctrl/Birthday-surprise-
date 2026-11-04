@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071b3d">
+<title>A Little Universe for Alaa ✨</title>
+<style>
+:root{--night:#06152f;--blue:#102d59;--cyan:#9be8ff;--pale:#e8f8ff;--pink:#ffb9dc}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--pale);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(ellipse at 50% 0%,#234d82 0%,#102b52 36%,#071a38 72%,#040d20 100%);overflow-x:hidden}
+#stars{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.star{position:absolute;background:#fff;border-radius:50%;opacity:.7;animation:twinkle 2.8s infinite alternate}
+@keyframes twinkle{to{opacity:.15;transform:scale(.55)}}
+main{position:relative;z-index:1;width:min(920px,92%);margin:auto;padding:30px 0 70px}
+section,.hero{background:#ffffff0d;border:1px solid #bdeaff2b;backdrop-filter:blur(8px);border-radius:26px;padding:25px;margin:18px 0;box-shadow:0 12px 40px #0002}
+.hero{text-align:center;padding:48px 22px 38px}
+.eyebrow{letter-spacing:3px;color:var(--cyan);font-size:.78rem}
+h1{font-size:clamp(2.5rem,9vw,5rem);margin:12px 0;color:#fff;text-shadow:0 0 28px #8bdfff80}
+h2{color:#c5f1ff;margin-top:0}
+p{line-height:1.9;color:#e4f5ff}
+.subtitle{font-size:1.1rem}
+button{border:0;border-radius:999px;padding:13px 22px;font-size:1rem;font-weight:700;cursor:pointer;background:linear-gradient(120deg,#9be8ff,#d8c9ff);color:#092247;box-shadow:0 7px 25px #8bdfff30;transition:transform .2s}
+button:hover{transform:translateY(-2px)}
+button:focus-visible{outline:3px solid white;outline-offset:4px}
+.heart{display:inline-block;color:#ffb9dc;font-size:1.6rem;animation:float 2.5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px) rotate(8deg)}}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px auto 8px;max-width:520px}
+.timebox{background:#c5edff12;border:1px solid #c5edff30;border-radius:16px;padding:14px 5px}
+.timebox strong{display:block;font-size:clamp(1.5rem,5vw,2.2rem);color:#fff}
+.timebox span{font-size:.85rem;color:#b9eaff}
+.cake-wrap{text-align:center;padding:10px}
+.cake{font-size:6rem;filter:drop-shadow(0 0 20px #9be8ff55);animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+#cakeMessage{min-height:30px;color:#c9f3ff}
+.envelope{font-size:4.5rem;display:block;margin:8px auto 16px;filter:drop-shadow(0 0 18px #a9eaff55)}
+#secret{display:none;background:#ffffff12;border:1px dashed #bdeaff66;border-radius:18px;padding:20px;margin-top:18px}
+#secret p{margin:0}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.memory{min-height:145px;border:1px dashed #bdeaff77;border-radius:18px;background:linear-gradient(145deg,#b8eaff20,#d8c9ff18);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px}
+.memory .emoji{font-size:2.2rem}
+.memory small{color:#c5eaff;line-height:1.6}
+.note{font-size:.85rem;color:#b9d9ee}
+footer{text-align:center;padding:25px 10px;color:#b8d9ef}
+.floating-heart{position:fixed;bottom:-35px;z-index:3;pointer-events:none;animation:rise 7s linear forwards}
+@keyframes rise{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+@media(max-width:560px){main{width:94%;padding-top:14px}.hero,section{padding:21px 16px}.gallery{grid-template-columns:1fr}.memory{min-height:105px}.countdown{gap:6px}.timebox{padding:11px 2px}}
+</style>
+</head>
+<body>
+<div id="stars" aria-hidden="true"></div>
+<main>
+  <header class="hero">
+    <div class="eyebrow">A LITTLE UNIVERSE MADE FOR YOU</div>
+    <div class="heart">♡ ✦ ♡</div>
+    <h1>عيد ميلاد سعيد يا آلاء</h1>
+    <p class="subtitle">في هذا اليوم، صار للعالم سبب إضافي ليكون أجمل. ✨</p>
+    <p>هذه مساحة صغيرة صنعتها لكِ، لتذكّرك كم أنتِ شخص مميز.</p>
+    <div class="actions">
+      <a href="#surprise"><button>اكتشفي مفاجأتك ↓</button></a>
+    </div>
+  </header>
+
+  <section id="count">
+    <h2>⏳ حتى لحظة المفاجأة</h2>
+    <p>يمكنك ضبط موعد عيد ميلادك هنا. إذا تركتِ الموعد كما هو، سيظهر العدّ التنازلي إلى بداية اليوم التالي.</p>
+    <label for="birthdayDate" class="note">اختاري تاريخ ووقت المفاجأة:</label><br><br>
+    <input id="birthdayDate" type="datetime-local" style="max-width:100%;padding:10px;border-radius:12px;border:1px solid #bdeaff;background:#102b52;color:white">
+    <div class="countdown" aria-live="polite">
+      <div class="timebox"><strong id="days">--</strong><span>يوم</span></div>
+      <div class="timebox"><strong id="hours">--</strong><span>ساعة</span></div>
+      <div class="timebox"><strong id="minutes">--</strong><span>دقيقة</span></div>
+      <div class="timebox"><strong id="seconds">--</strong><span>ثانية</span></div>
+    </div>
+    <p id="countText" class="note">اختاري الموعد لبدء العدّ التنازلي.</p>
+  </section>
+
+  <section class="cake-wrap" id="surprise">
+    <h2>🎂 أمنية عيد الميلاد</h2>
+    <div class="cake" aria-label="كعكة عيد ميلاد">🎂</div>
+    <p>لديكِ أمنية واحدة… أغمضي عينيكِ وتمنّي شيئًا جميلًا.</p>
+    <button id="wishBtn">أشعل الشموع ✨</button>
+    <p id="cakeMessage" aria-live="polite"></p>
+  </section>
+
+  <section>
+    <h2>💌 رسالة سرية لكِ</h2>
+    <span class="envelope">✉️</span>
+    <p style="text-align:center">هناك كلمات صغيرة تنتظرك خلف هذا الظرف…</p>
+    <div class="actions"><button id="openLetter">افتحي رسالتك</button></div>
+    <div id="secret">
+      <p>
+        الى الوءا،<br><br>
+        كل عام و انت بألف خير عقبه لميه سنه ان شاء الله قاع واش تتمني يتحقق و نحبك ديما فرحانه 
+        اتمنى رساله تعجبك و الموقع بشكل عام يعجبك كنت حابب كثر كنت حاب نعطيك شيئ يقعدلك كثر 
+        بصح مكانش كيفاه نعطيلك فلجأت اني نصنعلك ذا الموقع... نحبك الاء دائما و انت مصدر سعادتي 
+        ما نقدرش نوصف حبي لك...لي نقدر نقوله لك...نحبك بزاف يا الطف وحده في حياتي
+        .<br><br>
+        عيد ميلاد سعيد يا صديقتي. 💙
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>🌠 ركن الذكريات</h2>
+    <p>يمكنك استبدال هذه الخانات بصوركما وذكرياتكما المفضلة. اضغطي على اختيار صورة لإضافتها من هاتفك.</p>
+    <div class="gallery">
+      <label class="memory"><span class="emoji">📸</span><strong>ذكرى جميلة</strong><small>اضغطي لاختيار صورة</small><input type="file" accept="image/*" hidden onchange="showPhoto(this,'photo1')"><img id="photo1" alt="" style="display:none;max-width:100%;max-height:180px;border-radius:12px;margin-top:8px"></label>
+      <label class="memory"><span class="emoji">🌷</span><strong>لحظة لا تُنسى</strong><small>اضغطي لاختيار صورة</small><input type="file" accept="image/*" hidden onchange="showPhoto(this,'photo2')"><img id="photo2" alt="" style="display:none;max-width:100%;max-height:180px;border-radius:12px;margin-top:8px"></label>
+      <label class="memory"><span class="emoji">⭐</span><strong>ذكرى أخرى</strong><small>اضغطي لاختيار صورة</small><input type="file" accept="image/*" hidden onchange="showPhoto(this,'photo3')"><img id="photo3" alt="" style="display:none;max-width:100%;max-height:180px;border-radius:12px;margin-top:8px"></label>
+    </div>
+    <p class="note">ملاحظة: الصور المختارة من هذه الخانات تظهر على جهازك فقط، ولا تُرفع تلقائيًا إلى الموقع. لإرسال صور ثابتة معها، أضف ملفات الصور إلى مستودع GitHub واربطها بالكود.</p>
+  </section>
+
+  <section style="text-align:center">
+    <div class="heart">♡ ✧ ♡</div>
+    <h2>منّي إليكِ، عبر كل المسافات</h2>
+    <p>نتمنى لك حياه سعيده و مليئه بسعاده...اتمنى لك كل الخير و الله ينجحك في حياتك ..نحبك!</p>
+    <div style="font-size:2rem">🌙 💫 🩵</div>
+  </section>
+  <footer>صُنعت بكل محبة من أجل آلاء · Happy Birthday ✨</footer>
+</main>
+
+<script>
+// نجوم الخلفية
+const starField=document.getElementById('stars');
+for(let i=0;i<95;i++){
+  const s=document.createElement('i');s.className='star';
+  const size=Math.random()*3+1;
+  s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;width:${size}px;height:${size}px;animation-delay:${Math.random()*3}s`;
+  starField.appendChild(s);
+}
+// قلوب عائمة
+function floatingHeart(){
+  const h=document.createElement('span');h.className='floating-heart';
+  h.textContent=['♡','💙','✦','💕'][Math.floor(Math.random()*4)];
+  h.style.left=Math.random()*100+'%';h.style.fontSize=(15+Math.random()*18)+'px';
+  h.style.color='#bceeff';document.body.appendChild(h);
+  setTimeout(()=>h.remove(),7200);
+}
+setInterval(floatingHeart,1100);
+// الرسالة السرية
+document.getElementById('openLetter').addEventListener('click',()=>{
+  const box=document.getElementById('secret');
+  box.style.display=box.style.display==='block'?'none':'block';
+  document.getElementById('openLetter').textContent=box.style.display==='block'?'أغلقي الرسالة':'افتحي رسالتك';
+});
+// كعكة الأمنيات
+document.getElementById('wishBtn').addEventListener('click',()=>{
+  document.getElementById('cakeMessage').textContent='🕯️🕯️🕯️ أمنيتك تستحق أن تتحقق… كل عام وأنتِ بخير يا آلاء! 💙';
+  document.getElementById('wishBtn').textContent='عيد ميلاد سعيد! 🎉';
+});
+// صور محلية للمعاينة
+function showPhoto(input,id){
+  const file=input.files&&input.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=()=>{const img=document.getElementById(id);img.src=reader.result;img.style.display='block';};
+  reader.readAsDataURL(file);
+}
+// العد التنازلي: يختار المستخدم الموعد، والافتراضي منتصف الليل التالي
+const dateInput=document.getElementById('birthdayDate');
+const now=new Date();const tomorrow=new Date(now);tomorrow.setDate(now.getDate()+1);tomorrow.setHours(0,0,0,0);
+const localISO=d=>new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,16);
+dateInput.value="2026-11-05T00:00";
+function updateCountdown(){
+  const target=new Date(dateInput.value).getTime();
+  if(!dateInput.value||Number.isNaN(target)){document.getElementById('countText').textContent='اختاري تاريخًا صحيحًا.';return;}
+  let diff=target-Date.now();
+  if(diff<=0){['days','hours','minutes','seconds'].forEach(id=>document.getElementById(id).textContent='0');document.getElementById('countText').textContent='حان وقت المفاجأة! 🎉';return;}
+  const d=Math.floor(diff/86400000);diff%=86400000;
+  const h=Math.floor(diff/3600000);diff%=3600000;
+  const m=Math.floor(diff/60000);const s=Math.floor((diff%60000)/1000);
+  document.getElementById('days').textContent=d;
+  document.getElementById('hours').textContent=h;
+  document.getElementById('minutes').textContent=m;
+  document.getElementById('seconds').textContent=s;
+  document.getElementById('countText').textContent='الوقت المتبقي حتى لحظة المفاجأة 💫';
+}
+dateInput.addEventListener('change',updateCountdown);updateCountdown();setInterval(updateCountdown,1000);
+</script>
+</body>
+</html>
